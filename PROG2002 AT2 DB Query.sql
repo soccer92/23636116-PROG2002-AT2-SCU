@@ -83,3 +83,9 @@ INSERT INTO category (category_name, category_desc) VALUES
 ('Gala', 'Formal dinner and charity event'),
 ('Auction', 'Live charity auction'),
 ('Concert', 'Live music ensemble');
+
+/* Events */
+INSERT INTO event (org_id, category_id, event_name, event_desc, event_start_dt, event_end_dt, location_city, location_state, location_postcode, location_country, goal_amount) VALUES
+(1, (SELECT category_id FROM category WHERE category_name='Fun Run'), 'Lismore to Yelgun Fun Run', 'A combined 88km fun run from the Country to the Surf and back.', '2025-10-15 10:00:00', '2025-10-15 14:00:00', 'Yelgun', 'NSW', '2483', 'Australia', 100000.00),
+(2, (SELECT category_id FROM category WHERE category_name='Concert'), 'Charity Concert with Guy Sebastian', 'A night in concert at Twin Towns with Guy Sebastian, raising much needed funds for Tweed Landcare.', '2025-10-04 19:00:00', '2025-10-04 22:00:00', 'Tweed Heads', 'NSW', '2485', 'Australia', 50000.00),
+(3, (SELECT category_id FROM category WHERE category_name='Gala'), 'Gala dinner at the Slim Dusty Centre', 'Gala dinner, entertainment and speakers to support young people with mental health challenges.', '2025-10-01 18:00:00', '2025-10-01 22:00:00', 'Kempsey South', 'NSW', '2440', 'Australia', 15000.00),
