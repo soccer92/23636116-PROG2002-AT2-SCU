@@ -105,3 +105,14 @@ INSERT INTO ticket (event_id, ticket_price) VALUES
 (6, 30.00),
 (7, 80.00),
 (8, 15.50);
+
+/* Donations */
+INSERT INTO donation (event_id, donation_amount) VALUES
+(1, 3000.00),
+(2, 500.00),
+(3, 10000.00),
+(4, 100.00),
+(5, 100000.00),
+(6, 1500.50),
+(7, 1800.20),
+(8, 10000.00);
