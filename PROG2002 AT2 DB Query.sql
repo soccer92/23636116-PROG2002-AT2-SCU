@@ -94,3 +94,14 @@ INSERT INTO event (org_id, category_id, event_name, event_desc, event_start_dt, 
 (6, (SELECT category_id FROM category WHERE category_name='Concert'), 'Local Artists Concert to Raise Funds for Arts MNC!', 'Bandbox Theatre Concert featuring Mid-North Coast Local Artists to raise funds for Arts Mid-North Coast.', '2025-09-27 19:30:00', '2025-09-27 21:30:00', 'Kempsey West', 'NSW', '2440', 'Australia', 5000.00),
 (7, (SELECT category_id FROM category WHERE category_name='Gala'), 'Gala Dinner at the Kempsey Macleay RSL Club', 'Gala dinner at the Kempsey Macleay RSL Club to increase public transport on the North Coast.', '2025-10-12 18:00:00', '2025-10-12 20:30:00', 'Kempsey', 'NSW', '2440', 'Australia', 5500.00),
 (8, (SELECT category_id FROM category WHERE category_name='Fun Run'), 'Kempsey Fun Run to Improve the Macleay', 'Kempsey Fun Run along the Eden Street Parklands to improve the Macleay Valley!', '2025-10-01 09:00:00', '2025-10-01 12:00:00', 'Kempsey', 'NSW', '2440', 'Australia', 12000.00);
+
+/* Tickets */
+INSERT INTO ticket (event_id, ticket_price) VALUES
+(1, 20.00),
+(2, 65.00),
+(3, 95.00),
+(4, 5.00),
+(5, 10.00),
+(6, 30.00),
+(7, 80.00),
+(8, 15.50);
