@@ -3,10 +3,10 @@
     Student ID: 23636116
     Description: SQL Connection for the Charity Events Database.
 */
-const mysql = require('mysql2');
+var mysql = require('mysql2');
 
 // Initialise MySQL Connection
-const Connection = mysql.createConnection({
+var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'config#1',
@@ -14,7 +14,7 @@ const Connection = mysql.createConnection({
 });
 
 // Open the MySQL Connection
-Connection.connect((err) => {
+connection.connect((err) => {
     if (err) {
         console.error('Error connecting to the database:', err);
         return;
@@ -22,4 +22,4 @@ Connection.connect((err) => {
     console.log('Connected to the MySQL database.');
 });
 
-module.exports = Connection;
+module.exports = connection;
