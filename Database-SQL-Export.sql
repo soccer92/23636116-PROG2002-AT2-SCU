@@ -53,7 +53,7 @@ CREATE TABLE `donation` (
   `donation_amount` decimal(10,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`donation_id`),
   KEY `event_id` (`event_id`),
-  CONSTRAINT `donation_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `Event` (`event_id`)
+  CONSTRAINT `donation_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event` (`event_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -90,8 +90,8 @@ CREATE TABLE `event` (
   PRIMARY KEY (`event_id`),
   KEY `org_id` (`org_id`),
   KEY `category_id` (`category_id`),
-  CONSTRAINT `event_ibfk_1` FOREIGN KEY (`org_id`) REFERENCES `Organisation` (`org_id`),
-  CONSTRAINT `event_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `Category` (`category_id`)
+  CONSTRAINT `event_ibfk_1` FOREIGN KEY (`org_id`) REFERENCES `organisation` (`org_id`),
+  CONSTRAINT `event_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -147,8 +147,8 @@ CREATE TABLE `ticket` (
   `ticket_price` decimal(4,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`ticket_id`),
   KEY `event_id` (`event_id`),
-  CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `Event` (`event_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event` (`event_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +157,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (9,1,20.00),(10,2,65.00),(11,3,95.00),(12,4,5.00),(13,5,10.00),(14,6,30.00),(15,7,80.00),(16,8,15.50);
+INSERT INTO `ticket` VALUES (1,1,20.00),(2,2,65.00),(3,3,95.00),(4,4,5.00),(5,5,10.00),(6,6,30.00),(7,7,80.00),(8,8,15.50);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -170,4 +170,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-17 10:35:01
+-- Dump completed on 2025-09-17 12:39:58

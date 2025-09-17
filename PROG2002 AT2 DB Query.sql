@@ -4,6 +4,8 @@
     Description: Query to initiate required elements for the database component of AT2.
 */
 
+DROP DATABASE charityevents_db;
+
 /* Initiating database for the first time. */
 CREATE DATABASE charityevents_db;
 use charityevents_db;
@@ -43,8 +45,8 @@ CREATE TABLE event (
     location_country		VARCHAR(50) NOT NULL DEFAULT 'Australia',
     goal_amount				DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     PRIMARY KEY (event_id),
-    FOREIGN KEY (org_id) REFERENCES Organisation(org_id),
-    FOREIGN KEY (category_id) REFERENCES Category(category_id)
+    FOREIGN KEY (org_id) REFERENCES organisation(org_id),
+    FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
 
 /* Create Ticket Table */
@@ -53,7 +55,7 @@ CREATE TABLE ticket (
     event_id				INT NOT NULL, -- FOREIGN KEY
     ticket_price			DECIMAL(4,2) NOT NULL DEFAULT 0.00,
     PRIMARY KEY (ticket_id),
-    FOREIGN KEY (event_id) REFERENCES Event(event_id)
+    FOREIGN KEY (event_id) REFERENCES event(event_id)
 );
 
 /* Create Donation Table */
@@ -62,7 +64,7 @@ CREATE TABLE donation (
     event_id				INT NOT NULL, -- FOREIGN KEY
     donation_amount			DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     PRIMARY KEY (donation_id),
-    FOREIGN KEY (event_id) REFERENCES Event(event_id)
+    FOREIGN KEY (event_id) REFERENCES event(event_id)
 );
 
 /* Adding data into the tables. */
