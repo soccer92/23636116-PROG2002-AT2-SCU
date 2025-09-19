@@ -57,11 +57,26 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 12px;
     overflow-x: hidden;
     overflow-y: auto; /* Allow vertical scrolling if content overflows */
 }
 /* Main Conclude */
+
+/* Section */
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    text-align: center;
+}
+
+section > h1 {
+    color: #1b315e;
+}
+
+section > p {
+    font-size: 10pt;
+}
 
 /* Footer */
 footer {
