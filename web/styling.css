@@ -1,0 +1,26 @@
+/*
+    Name: Thomas Carpenter
+    Student ID: 23636116
+    Description: Master stylesheet for the web application.
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    background: #eee;
+}
+
+/* Nav */
+nav {
+    display: flex;
+    align-items: center;
+    background: #333;
+}
