@@ -21,6 +21,31 @@ body {
 /* Nav */
 nav {
     display: flex;
-    align-items: center;
     background: #333;
+}
+
+nav > .logo {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+nav > .spacer {
+    flex: 1;
+}
+
+nav > a {
+    text-decoration: none;
+    font-size: 12pt;
+    padding: 12px;
+    color: #fff;
+}
+
+nav > a:not(.logo):not(.active):hover {
+    background: #ccc;
+    color: #333;
+}
+
+nav > a.active {
+    background: #aaa;
+    color: #333;
 }
