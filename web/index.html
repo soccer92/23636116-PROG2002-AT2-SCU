@@ -8,13 +8,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>North Coast Charity Events</title>
+        <title>Charity Events Kempsey</title>
         <link rel="stylesheet" href="styling.css">
     </head>
     <body>
         <!-- Nav -->
         <nav>
-            <a class="logo" title="North Coast Charity Events" href="index.html">North Coast Charity Events</a>
+            <a class="logo" title="Charity Events Kempsey" href="index.html">Charity Events Kempsey</a>
             <div class="spacer"></div>
             <a title="Home" href="index.html" class="active">Home</a>
             <a title="Search Events" href="search.html">Search Events</a>
@@ -25,8 +25,8 @@
          <main>
             <!-- Static Content -->
             <section>
-                <h1>Welcome to North Coast Charity Events</h1>
-                <p>Your one-stop shop for finding charity events in the NSW North Coast!</p>
+                <h1>Welcome to Charity Events Kempsey</h1>
+                <p>Your one-stop shop for finding charity events within the City of Kempsey!</p>
                 <p>Whether you are looking to participate in a local event or simply stay informed about upcoming charity events, we have got you covered!</p>
             </section>
             <!-- Static Content Conclude -->
@@ -43,12 +43,47 @@
 
         <!-- Footer -->
         <footer>
-            <p>Copyright (c) North Coast Charity Events. All rights reserved.</p>
+            <p>Copyright (c) Charity Events Kempsey. All rights reserved.</p>
             <p>Designed by Thomas Carpenter for PROG2002 Assessment Task Two.</p>
         </footer>
         <!-- Footer Conclude -->
     
     <!-- Javascript -->
-    <script></script>
+    <script>
+        var upcomingEvents = document.getElementsByClassName("upcoming-events")[0];
+        var warning = document.getElementsByClassName("warning")[0];
+
+        fetch("/api/events")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (events) {
+                if (events.length === 0) {
+                    warning.innerText = "No upcoming events have been found at this time.";
+                    return;
+                }
+
+                upcomingEvents.innerHTML = events.map(function (event) {
+                    var eventDetail = "event.html?id=" + encodeURIComponent(event.event_id);
+                    var startEventDT = new Date(event.event_start_dt).toLocaleString("en-AU").replace(",", " at");
+                    var endEventDT = new Date(event.event_end_dt).toLocaleString("en-AU").replace(",", " at");
+
+                    return `
+                        <div class="event">
+                            <h3>${event.event_name}</h3>
+                            <p><strong>${event.category_name}:</strong> Organised by ${event.org_name}</p>                        
+                            <p>${event.location_city}</p>
+                            <p>Commences on the ${startEventDT} and concludes on the ${endEventDT}</p>
+                            <p>${event.event_desc}</p>
+                            <p><a class="event-detail" href="${eventDetail}">Click for More Details</a></p>
+                        </div>
+                    `;
+                }).join('');
+                warning.innerText = '';
+            })
+            .catch(function () {
+                warning.innerText = "Could not load events.";
+            });
+    </script>
     </body>
 </html>
