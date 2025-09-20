@@ -111,6 +111,32 @@ section > .upcoming-events > .event > h3 {
 section > .upcoming-events > .event > p {
     font-size: 10pt;
 }
+
+section > form > fieldset {
+    border: 2px solid #1b315e;
+    margin: 8px 0;
+    padding: 12px;
+    font-size: 10pt;
+}
+
+section > form > fieldset > legend {
+    font-weight: bold;
+    padding: 12px;
+    background: #1b315e;
+    color: #fff;
+}
+
+section > form > fieldset > label {
+    text-transform: uppercase;
+    color: #1b315e;
+    margin: 8px 0;
+}
+
+section > form > fieldset > input, section > form > fieldset > select {
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #1b315e;
+}
 /* Section Conclude */
 
 /* Footer */
