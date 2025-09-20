@@ -22,7 +22,37 @@
         <!-- Nav Conclude -->
 
         <!-- Main Content -->
-        <main></main>
+        <main>
+            <!-- Search Events Form -->
+             <section>
+                <form id="events-search-form">
+                    <!-- Form Filters to distinguish events based on selected criteria. -->
+                    <fieldset>
+                        <legend>Filters to Search Events</legend>
+                        <!-- Start Date -->
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate" name="startDate">
+                        <!-- End Date -->
+                        <label for="endDate">End Date</label>
+                        <input type="date" id="endDate" name="endDate">
+                        <!-- Location -->
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="E.g. Kempsey">
+                        <!-- Category -->
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="">Select a Category:</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <!-- Clear Filters -->
+                        <input type="reset" name="reset" value="Clear Filters">
+                        <!-- Submit Form -->
+                        <input type="submit" name="submit" value="Search Events">
+                    </fieldset>
+                </form>
+             </section>
+        </main>
         <!-- Main Content Conclude -->
 
         <!-- Footer -->
