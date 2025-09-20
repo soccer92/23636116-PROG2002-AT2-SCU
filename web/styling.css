@@ -12,8 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh;
     height: 100%;
+    min-height: 100vh;
     margin: 0;
     font-family: "Trebuchet MS", sans-serif;
     background: #eee;
@@ -56,9 +56,6 @@ nav > a.active {
 main {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    overflow-x: hidden;
-    overflow-y: auto; /* Allow vertical scrolling if content overflows */
 }
 /* Main Conclude */
 
@@ -74,9 +71,39 @@ section > h1 {
     color: #1b315e;
 }
 
+section > h2 {
+    color: #1b315e;
+}
+
 section > p {
     font-size: 10pt;
 }
+
+section > .upcoming-events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+section > .upcoming-events > .event {
+    background: rgba(250, 190, 88, 0.4);
+    opacity: 0.75;
+    border: 2px dashed #1b315e;
+    width: 300px;
+    margin: 8px;
+    padding: 12px;
+}
+
+section > .upcoming-events > .event > h3 {
+    color: #1b315e;
+}
+
+section > .upcoming-events > .event > p {
+    font-size: 10pt;
+}
+/* Section Conclude */
 
 /* Footer */
 footer {
