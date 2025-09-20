@@ -70,8 +70,8 @@ CREATE TABLE donation (
 /* Adding data into the tables. */
 /* Organisations */
 INSERT INTO organisation (org_name, org_welcome_message, org_mission_statement, org_website, org_email, org_phone) VALUES
-('Northern Rivers Rail Limited', 'Welcome to Northern Rivers Rail Limited', 'Bringing back trains to the Northern Rivers', 'www.northernriversrail.com.au', 'admin@northernriversrail.com.au', '0422 007 724'),
-('Tweed Landcare', 'Welcome to Tweed Landcare', 'Planting one tree at a time', 'www.tweedlc.org.au', 'contact@tweedlc.org.au', '0400 008 754'),
+('Macleay Valley Rail Ltd', 'Welcome to Macleay Valley Rail Ltd', 'Introducing trains to our Macleay Valley Communities', 'www.macleayvalleyrail.com.au', 'admin@macleayvalleyrail.com.au', '0422 044 712'),
+('Hat Head Landcare', 'Welcome to Hat Head Landcare', 'Planting one tree at a time', 'www.hhlc.org.au', 'contact@hhlc.org.au', '0400 008 754'),
 ('Lifeline Mid Coast', 'Welcome to Lifeline Mid Coast', 'Caring for our most vulnerable', 'www.lifelinemidcoast.org.au', 'admin@lifelinemidcoast.org.au', '02 6562 1346'),
 ('Crescent Head Beach Care', 'Welcome to Crescent Head Beach Care', 'Caring for our pristine coastline!', 'www.chbc.org.au', 'chbc@chbc.org.au', '0476 553 221'),
 ('Gowings Foundation', 'Welcome to Gowings Foundation', 'Caring for our Mid-North Coast communities', 'www.gowings.com.au', 'info@gowings.com.au', '1300 800 500'),
@@ -88,14 +88,14 @@ INSERT INTO category (category_name, category_desc) VALUES
 
 /* Events */
 INSERT INTO event (org_id, category_id, event_name, event_desc, event_start_dt, event_end_dt, location_city, location_state, location_postcode, location_country, goal_amount) VALUES
-(1, (SELECT category_id FROM category WHERE category_name='Fun Run'), 'Lismore to Yelgun Fun Run', 'A combined 88km fun run from the Country to the Surf and back.', '2025-10-15 10:00:00', '2025-10-15 18:00:00', 'Yelgun', 'NSW', '2483', 'Australia', 100000.00),
-(2, (SELECT category_id FROM category WHERE category_name='Concert'), 'Charity Concert with Guy Sebastian', 'A night in concert at Twin Towns with Guy Sebastian, raising much needed funds for Tweed Landcare.', '2025-10-04 19:00:00', '2025-10-04 22:00:00', 'Tweed Heads', 'NSW', '2485', 'Australia', 50000.00),
-(3, (SELECT category_id FROM category WHERE category_name='Gala'), 'Gala dinner at the Slim Dusty Centre', 'Gala dinner, entertainment and speakers to support young people with mental health challenges.', '2025-10-01 18:00:00', '2025-10-01 22:00:00', 'Kempsey South', 'NSW', '2440', 'Australia', 15000.00),
-(4, (SELECT category_id FROM category WHERE category_name='Auction'), 'Artwork auction at Crescent Head SLSC', 'Artwork auction to raise vital funds for Crescent Head Beach Care.', '2025-09-30 12:00:00', '2025-09-30 14:30:00', 'Crescent Head', 'NSW', '2440', 'Australia', 3000.00),
-(5, (SELECT category_id FROM category WHERE category_name='Auction'), 'Sculpture auction to Support our Flood Victims', 'Sculpture auction to support our flood affected communities.', '2025-09-22 18:30:00', '2025-09-22 20:00:00', 'Kempsey West', 'NSW', '2440', 'Australia', 1200.00),
-(6, (SELECT category_id FROM category WHERE category_name='Concert'), 'Local Artists Concert to Raise Funds for Arts MNC!', 'Bandbox Theatre Concert featuring Mid-North Coast Local Artists to raise funds for Arts Mid-North Coast.', '2025-09-27 19:30:00', '2025-09-27 21:30:00', 'Kempsey West', 'NSW', '2440', 'Australia', 5000.00),
+(1, (SELECT category_id FROM category WHERE category_name='Fun Run'), 'Bellbrook to Crescent Head Fun Run', 'A combined 88km fun run from the Country to the Surf.', '2025-10-15 10:00:00', '2025-10-15 18:00:00', 'Bellbrook', 'NSW', '2440', 'Australia', 100000.00),
+(2, (SELECT category_id FROM category WHERE category_name='Concert'), 'Charity Concert with Guy Sebastian', 'A night in concert at Port Macquarie Glasshouse with Guy Sebastian, raising much needed funds for Hat Head Landcare.', '2025-10-04 19:00:00', '2025-10-04 22:00:00', 'Port Macquarie', 'NSW', '2440', 'Australia', 50000.00),
+(3, (SELECT category_id FROM category WHERE category_name='Gala'), 'Gala Dinner at the Slim Dusty Centre', 'Gala dinner, entertainment and speakers to support young people with mental health challenges.', '2025-10-01 18:00:00', '2025-10-01 22:00:00', 'Kempsey South', 'NSW', '2440', 'Australia', 15000.00),
+(4, (SELECT category_id FROM category WHERE category_name='Auction'), 'Artwork Auction at Crescent Head SLSC', 'Artwork auction to raise vital funds for Crescent Head Beach Care.', '2025-09-30 12:00:00', '2025-09-30 14:30:00', 'Crescent Head', 'NSW', '2440', 'Australia', 3000.00),
+(5, (SELECT category_id FROM category WHERE category_name='Auction'), 'Sculpture Auction to Support our Flood Victims', 'Sculpture auction to support our flood affected communities.', '2025-09-22 18:30:00', '2025-09-22 20:00:00', 'Kempsey West', 'NSW', '2440', 'Australia', 1200.00),
+(6, (SELECT category_id FROM category WHERE category_name='Concert'), 'Local Artists Concert to Raise Funds for Arts MNC!', 'Bandbox Theatre concert featuring Mid-North Coast Local Artists to raise funds for Arts Mid-North Coast.', '2025-09-27 19:30:00', '2025-09-27 21:30:00', 'Kempsey West', 'NSW', '2440', 'Australia', 5000.00),
 (7, (SELECT category_id FROM category WHERE category_name='Gala'), 'Gala Dinner at the Kempsey Macleay RSL Club', 'Gala dinner at the Kempsey Macleay RSL Club to increase public transport on the North Coast.', '2025-10-12 18:00:00', '2025-10-12 20:30:00', 'Kempsey', 'NSW', '2440', 'Australia', 5500.00),
-(8, (SELECT category_id FROM category WHERE category_name='Fun Run'), 'Kempsey Fun Run to Improve the Macleay', 'Kempsey Fun Run along the Eden Street Parklands to improve the Macleay Valley!', '2025-10-01 09:00:00', '2025-10-01 12:00:00', 'Kempsey', 'NSW', '2440', 'Australia', 12000.00);
+(8, (SELECT category_id FROM category WHERE category_name='Fun Run'), 'Kempsey Fun Run to Improve the Macleay', 'Kempsey fun run along the Eden Street Parklands to improve the Macleay Valley!', '2025-10-01 09:00:00', '2025-10-01 12:00:00', 'Kempsey', 'NSW', '2440', 'Australia', 12000.00);
 
 /* Tickets */
 INSERT INTO ticket (event_id, ticket_price) VALUES
