@@ -67,15 +67,23 @@ section {
     text-align: center;
 }
 
-section > h1 {
+section.welcome {
+    background-image: url("./images/backdrop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+section.welcome > .welcome-wrapper {
+    background: rgba(255, 255, 255, 0.90);
+    padding: 12px;
+}
+
+section.welcome > .welcome-wrapper > h1, section > h1, section > h2 {
     color: #1b315e;
 }
 
-section > h2 {
-    color: #1b315e;
-}
-
-section > p {
+section.welcome > .welcome-wrapper > p, section > p {
     font-size: 10pt;
 }
 
@@ -116,6 +124,11 @@ footer {
 
 footer > p {
     color: #fff;
-    font-size: 10pt;
+    font-size: 8pt;
+    margin: 8px 0;
+}
+
+footer > p > a {
+    color: #fff;
 }
 /* Footer Conclude */
