@@ -104,12 +104,46 @@ section > .upcoming-events > .event {
     padding: 12px;
 }
 
-section > .upcoming-events > .event > h3 {
+section > .upcoming-events > .event > h3, section > .event-detail > .event > h3 {
     color: #1b315e;
 }
 
-section > .upcoming-events > .event > p {
+section > .upcoming-events > .event > p, section > .event-detail > .event > p {
     font-size: 10pt;
+}
+
+section > .upcoming-events > .event > p > a {
+    text-decoration: underline;
+    color: #1b315e;
+}
+
+section > .event-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section > .event-detail > .event {
+    background: rgba(250, 190, 88, 0.4);
+    opacity: 0.75;
+    border: 2px dashed #1b315e;
+    width: 80%;
+    margin: 8px;
+    padding: 12px;
+}
+
+section > span.warning {
+    color: #E35335;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+section > button {
+    border: 1px solid #1b315e;
+    padding: 12px;
+    margin: 8px;
+    font-size: 10pt;
+    cursor: pointer;
 }
 
 section > form > fieldset {
