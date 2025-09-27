@@ -80,7 +80,7 @@
             }
 
             // Fetch event by unique ID.
-            fetch("/api/events?event_id=" + encodeURIComponent(uniqueEventID))
+            fetch("/api/events/" + encodeURIComponent(uniqueEventID))
                 .then(function (response) {
                     return response.json();
                 })
@@ -110,18 +110,21 @@
                     // Update document title.
                     document.title = ev.event_name + " — Charity Events Kempsey";
 
-                    // Populate event details.
+                    var ticketPrice = ev.ticket_price != null ? Number(ev.ticket_price) : null;
+                    var goalAmount = ev.goal_amount != null ? Number(ev.goal_amount) : null;
+
+                    // Render event in detail.
                     if (eventDetail) {
-                        eventDetail.innerHTML =
-                            '<h3>' + (ev.event_name || "Event") + "</h3>" +
-                            '<p><strong>' + (ev.category_name || "Event") + ":</strong> Organised by " +
-                            (ev.org_name || "Unknown") + "</p>" +
-                            "<p>" + (ev.location_city || "Location TBC") + "</p>" +
-                            (startDT
-                                ? "<p>Commences on the " + startDT +
-                                  (endDT ? " and concludes on the " + endDT : "") + "</p>"
-                                : "") +
-                            (ev.event_desc ? "<p>" + ev.event_desc + "</p>" : "");
+                        var eventHTML = `
+                            <h3>${ev.event_name || "Event"}</h3>
+                            <p><strong>${ev.category_name || "Event"}:</strong> Organised by ${ev.org_name || "Unknown"}</p>
+                            <p>${ev.location_city || "Location TBC"}</p>
+                            ${startDT ? `<p>Commences on the ${startDT}${endDT ? ` and concludes on the ${endDT}` : ""}</p>` : ""}
+                            ${ev.event_desc ? `<p>${ev.event_desc}</p>` : ""}
+                            ${ticketPrice !== null && !Number.isNaN(ticketPrice) ? `<p><strong>Ticket Price:</strong> $${ticketPrice.toFixed(2)}</p>` : ""}
+                            ${goalAmount !== null && !Number.isNaN(goalAmount) ? `<p><strong>Goal Amount:</strong> $${goalAmount.toFixed(2)}</p>` : ""}
+                        `;
+                        eventDetail.innerHTML = eventHTML.trim();
                     }
 
                     if (warning) {
