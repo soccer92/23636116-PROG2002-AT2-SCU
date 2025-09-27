@@ -67,10 +67,11 @@ router.get('/search', function (req, res) {
 // Get /api/events/
 router.get('/:id', function (req, res) {
     var sql =
-        "SELECT `event`.*, category.category_name, organisation.org_name, organisation.org_mission_statement " +
+        "SELECT `event`.*, category.category_name, organisation.org_name, organisation.org_mission_statement, ticket.ticket_price " +
         "FROM `event` " +
         "JOIN category ON `event`.category_id = category.category_id " +
         "JOIN organisation ON `event`.org_id = organisation.org_id " +
+        "LEFT JOIN ticket ON `event`.event_id = ticket.event_id " +
         "WHERE `event`.event_id = ?";
     
     db.query(sql, [req.params.id], function (err, rows) {
